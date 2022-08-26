@@ -6,3 +6,4 @@ How to run?
   - "npm install"
   - "npm start"
 3. Open up emulator and press "a" in terminal or scan qr code generated in terminal using Apps Expo Go (download in play store)
+   

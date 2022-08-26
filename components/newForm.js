@@ -23,20 +23,16 @@ export default function NewForm() {
     //await apiRouter.deleteAllReport()
     await apiRouter.addNewReport(formData)
     let data = await apiRouter.getAllReport()
-    // setTimeout(() => {
-    //   Alert.alert(
-    //     'You need to...'
-    //  )
-    // }, 600);
     
     setFormData({name: "", icNum: "", email: ""})
     setFormList(data)
     console.log("FOrm data: ", formList)
   }
-const TestButton = () => {
-  Alert.alert('Testing')
-  {text: 'OK'}
-}
+
+  const TestButton = () => {
+    Alert.alert('Testing')
+    {text: 'OK'}
+  }
 
   return (
       <View style={{flex: 1}}>
@@ -106,7 +102,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1565C0',
     height: 150,
     paddingTop: 38,
-    // /borderRadius: 20,
     shadowColor: '#7F5DF0',
     shadowOffset: {
       width: 0,
@@ -127,25 +122,19 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 15,
-    //fontWeight: 'bold',
     color: 'white'
   },
   content: {
     flex: 1,
-    // position: "absolute",
-    // top: 150,
-    // width: "100%",
     maxHeight: "72%",
   },
   mainContent: {
     flex: 1,
     marginBottom: 20,
-    //maxHeight: "2%"
   },
   input: {
     height: 45,
     margin: 12,
-    //borderWidth: 1,
     borderRadius: 10,
     backgroundColor: '#F1F1F1',
     padding: 10,

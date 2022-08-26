@@ -50,12 +50,6 @@ export default class FormList extends React.Component {
                       image={earthImg} />
                   )
                 })}
-                {/* <Card type="danger" 
-                header="Header props" 
-                content="This is content props. There are many variations of passages of Lorem Ipsum ..."
-                subHeader="Sub Header"
-                subHeaderContent="02/08/2022"
-                image={earthImg} /> */}
               </ScrollView>
             </View>
           </View>
@@ -82,11 +76,9 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 15,
-    //fontWeight: 'bold',
     color: 'white'
   },
   content: {
-    //borderWidth: 2,
     flex: 1
   },
   mainContent: {

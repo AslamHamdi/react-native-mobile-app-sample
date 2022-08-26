@@ -12,13 +12,7 @@ import * as Animatable from 'react-native-animatable';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-//const apiRouter = require('./routers/apiRouter')
-
 const Tab = createBottomTabNavigator();
-
-// import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-
-// const Tab = createMaterialBottomTabNavigator();
 
 const Routes = [
   { route: 'Home', name: 'Home', component: Home, icon: HomeIcon },
@@ -37,22 +31,6 @@ const CustomTabBarButton = ({children, onPress}) => (
     ...styles.shadow
   }}
   onPress={onPress}
-  // style={(pressed) => [{
-  //   top: -10,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   backgroundColor: pressed ? '#1565C0' : 'black',
-  //   shadowColor: '#1565C0',
-  //   shadowOffset: {
-  //     width: 10,
-  //     height: 10
-  //   },
-  //   elevation: 5,
-  //   borderRadius: 35,
-  //   width: 60,
-  //   height: 60,
-  //   ...styles.shadow
-  // }]}
   >
     <View
       style={{
