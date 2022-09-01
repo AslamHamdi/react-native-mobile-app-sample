@@ -9,8 +9,11 @@ import AddIcon from './assets/add.png'
 import FormIcon from './assets/form.png'
 import * as Animatable from 'react-native-animatable';
 
+// import { GestureHandlerRootView } from 'react-native-gesture-handler'
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 const Tab = createBottomTabNavigator();
 
