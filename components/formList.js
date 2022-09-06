@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView } from 'react-native';
 import { ListItem, Button, Icon, Input } from 'react-native-elements'
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Card from './card'
 const earthImg = require("../assets/earth.png")

@@ -4,9 +4,13 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'reac
 import Home from './components/home'
 import FormList from './components/formList'
 import NewForm from './components/newForm'
+import ThreeD from './components/threeD'
+import ThreeD2 from './components/threeD2'
 import HomeIcon from './assets/home.png'
 import AddIcon from './assets/add.png'
 import FormIcon from './assets/form.png'
+import ControllerIcon from './assets/controller.png'
+import ThreeDIcon from './assets/3d-icon.png'
 import * as Animatable from 'react-native-animatable';
 
 // import { GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -18,9 +22,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 const Routes = [
+  { route: 'PlayGround', name: 'PlayGround', component: Home, icon: ControllerIcon },
   { route: 'Home', name: 'Home', component: Home, icon: HomeIcon },
   { route: 'Add', name: 'New Form', component: NewForm, icon: AddIcon },
-  { route: 'FormList', name: 'Form List', component: FormList, icon: FormIcon }
+  { route: 'FormList', name: 'Form List', component: FormList, icon: FormIcon },
+  { route: 'ThreeD', name: '3D Sample', component: ThreeD2, icon: ThreeDIcon }
 ]
 
 const CustomTabBarButton = ({children, onPress}) => (

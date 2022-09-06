@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, Alert } from 'react-native';
 //import Icon from 'react-native-vector-icons/FontAwesome';
-import { Card, ListItem, Button, Icon, Input } from 'react-native-elements'
-import Ionicons from '@expo/vector-icons/Ionicons';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Card, ListItem, Button, Icon, Input } from 'react-native-elements'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const apiRouter = require('../routers/apiRouter')

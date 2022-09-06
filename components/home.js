@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, ScrollView, AppRegistry, Platform } from 'react-native';
 import { ListItem, Button, Icon, Input } from 'react-native-elements'
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import Card from './card'
 
 import { BarChart, LineChart, PieChart } from "react-native-gifted-charts";
+
+import Expo from 'expo'
+import {Scene, Mesh, MeshBasicMaterial, PerspectiveCamera, BoxGeometry} from 'three'
+import ExpoTHREE, {Renderer} from 'expo-three'
+import {ExpoWebGLRenderingContext, GLView} from 'expo-gl'
 
 import axios from 'axios'
 
@@ -20,7 +23,6 @@ const ptData = [
   {value: 145, date: '6 Apr 2022'},
   {value: 160, date: '7 Apr 2022'},
   {value: 200, date: '8 Apr 2022'},
-
   {value: 220, date: '9 Apr 2022'},
   {
     value: 240,
@@ -34,7 +36,6 @@ const ptData = [
   {value: 385, date: '14 Apr 2022'},
   {value: 280, date: '15 Apr 2022'},
   {value: 390, date: '16 Apr 2022'},
-
   {value: 370, date: '17 Apr 2022'},
   {value: 285, date: '18 Apr 2022'},
   {value: 295, date: '19 Apr 2022'},
@@ -48,7 +49,6 @@ const ptData = [
   {value: 295, date: '22 Apr 2022'},
   {value: 260, date: '23 Apr 2022'},
   {value: 255, date: '24 Apr 2022'},
-
   {value: 190, date: '25 Apr 2022'},
   {value: 220, date: '26 Apr 2022'},
   {value: 205, date: '27 Apr 2022'},
@@ -60,11 +60,21 @@ const ptData = [
     label: '30 Apr',
     labelTextStyle: {color: 'lightgray', width: 60},
   },
-  {value: 240, date: '1 May 2022'},
-  {value: 250, date: '2 May 2022'},
-  {value: 280, date: '3 May 2022'},
-  {value: 250, date: '4 May 2022'},
-  {value: 210, date: '5 May 2022'},
+  {value: 160, date: '1 May 2022'},
+  {value: 180, date: '2 May 2022'},
+  {value: 190, date: '3 May 2022'},
+  {value: 180, date: '4 May 2022'},
+  {value: 140, date: '5 May 2022'},
+  {value: 145, date: '6 May 2022'},
+  {value: 160, date: '7 May 2022'},
+  {value: 200, date: '8 May 2022'},
+  {value: 220, date: '9 May 2022'},
+  {
+    value: 240,
+    date: '10 May 2022',
+    label: '10 May',
+    labelTextStyle: {color: 'lightgray', width: 60},
+  },
 ];
 
 const barData = [
@@ -82,6 +92,15 @@ const barData = [
 
   {value: 3000, frontColor: '#006DFF', gradientColor: '#009FFF', spacing: 6, label:'May'},
   {value: 2800, frontColor: '#3BE9DE', gradientColor: '#93FCF8'},
+
+  // {value: 3000, frontColor: '#006DFF', gradientColor: '#009FFF', spacing: 6, label:'June'},
+  // {value: 2800, frontColor: '#3BE9DE', gradientColor: '#93FCF8'},
+
+  // {value: 3000, frontColor: '#006DFF', gradientColor: '#009FFF', spacing: 6, label:'July'},
+  // {value: 2800, frontColor: '#3BE9DE', gradientColor: '#93FCF8'},
+
+  // {value: 3000, frontColor: '#006DFF', gradientColor: '#009FFF', spacing: 6, label:'Aug'},
+  // {value: 2800, frontColor: '#3BE9DE', gradientColor: '#93FCF8'},
 ];
 
 const pieData = [
@@ -110,6 +129,38 @@ const renderDot = color => {
     />
   );
 };
+
+let onContextCreate = async (gl) => {
+  const scene = new Scene()
+  const camera = new PerspectiveCamera(
+    74, 
+    gl.drawingBufferWidth/gl.drawingBufferHeight,
+    0.1,
+    1000
+  )
+  gl.canvas = {width:gl.drawingBufferWidth, height: gl.drawingBufferHeight}
+  camera.position.z = 2
+  
+  const renderer = new Renderer({gl})
+  renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight)
+  
+  const geometry = new BoxGeometry(1,1,1)
+  const material = new MeshBasicMaterial({
+    color: 'red'
+  })
+  const cube = new Mesh(geometry, material)
+  scene.add(cube)
+
+  const render = () => {
+    requestAnimationFrame(render)
+    cube.rotation.x += 0.01
+    cube.rotation.y += 0.01
+    renderer.render(scene, camera)
+    gl.endFrameEXP()
+  }
+
+  render()
+}
 
 const renderLegendComponent = () => {
   return (
@@ -280,7 +331,7 @@ export default class Home extends React.Component {
                               endOpacity={0.2}
                               initialSpacing={0}
                               noOfSections={6}
-                              maxValue={600}
+                              maxValue={500}
                               yAxisColor="white"
                               yAxisThickness={0}
                               rulesType="solid"
@@ -366,6 +417,33 @@ export default class Home extends React.Component {
                           {renderLegendComponent()}
                         </View>
                       </View>
+                      {/* 3D */}
+                      <View
+                        style={{
+                          paddingVertical: 100,
+                          backgroundColor: '#34448B',
+                          flex: 1,
+                        }}>
+                        <View
+                          style={{
+                            margin: 20,
+                            padding: 16,
+                            borderRadius: 20,
+                            backgroundColor: '#232B5D',
+                          }}>
+                          <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>
+                            3D Three
+                          </Text>
+                          <View style={{padding: 20, alignItems: 'center'}}>
+                            
+                            <GLView
+                              onContextCreate={onContextCreate}
+                              style={{width: 500, height: 500}}
+                            />
+
+                          </View>
+                        </View>
+                      </View>
                     </View>
                 </View>
               </View>
@@ -402,9 +480,7 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     flex: 1,
-    width: "105%",
+    width: "104%",
     maxHeight: "87%",
   }
 });
-
-// AppRegistry.registerComponent('ReactNativeFusionCharts', () => Home);
