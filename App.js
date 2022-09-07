@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'reac
 import Home from './components/home'
 import FormList from './components/formList'
 import NewForm from './components/newForm'
+import Playground from './components/playground'
 import ThreeD from './components/threeD'
 import ThreeD2 from './components/threeD2'
 import HomeIcon from './assets/home.png'
@@ -22,7 +23,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 const Routes = [
-  { route: 'PlayGround', name: 'PlayGround', component: Home, icon: ControllerIcon },
+  { route: 'Playground', name: 'Playground', component: Playground, icon: ControllerIcon },
   { route: 'Home', name: 'Home', component: Home, icon: HomeIcon },
   { route: 'Add', name: 'New Form', component: NewForm, icon: AddIcon },
   { route: 'FormList', name: 'Form List', component: FormList, icon: FormIcon },
