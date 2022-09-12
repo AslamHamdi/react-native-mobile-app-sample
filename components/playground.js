@@ -8,7 +8,7 @@ import { WebView } from "react-native-webview";
 import { readAsStringAsync } from "expo-file-system";
 import { useAssets } from "expo-asset";
 import ReactNativeFusionCharts from 'react-native-fusioncharts';
-import {LineChart} from 'react-native-charts-wrapper';
+import { LineChart, BarChart } from 'react-native-charts-wrapper';
 // import FusionCharts from 'react-native-fusioncharts';
 
 //var LineChart = require('react-native-charts-wrapper').default
@@ -371,3 +371,4 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('ReactNativeFusionCharts', () => PlayGround);
+//AppRegistry.registerComponent('RNLineChart', () => PlayGround);
