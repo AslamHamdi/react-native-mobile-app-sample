@@ -13,7 +13,7 @@
 
 #### 1. Chart using react-native-gifted-charts
 
-<img src="https://github.com/AslamHamdi/react-native-mobile-app-sample/blob/main/assets/refs/Expo_app_home.gif" width="250" height="250"/>
+<img src="https://github.com/AslamHamdi/react-native-mobile-app-sample/blob/main/assets/refs/Expo_app_home.gif" width="400" height="500"/>
 
 #### 2. 
 
