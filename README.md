@@ -23,5 +23,8 @@
 
 <img src="https://github.com/AslamHamdi/react-native-mobile-app-sample/blob/main/assets/refs/expo_app_threeD2.gif" width="300" height="650"/>
 
-### For example using bare react native cli, can go [here](https://github.com/AslamHamdi/bare-RN-mobile-app-sample)
+
+### Notes:
+
+#### For example using bare react native cli, can go [here](https://github.com/AslamHamdi/bare-RN-mobile-app-sample)
    
