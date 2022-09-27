@@ -17,7 +17,7 @@
 
 #### 2. Storing user input using SQlite
 
-<img src="https://github.com/AslamHamdi/react-native-mobile-app-sample/blob/main/assets/refs/expo_app_form.giff" width="300" height="650"/>
+<img src="https://github.com/AslamHamdi/react-native-mobile-app-sample/blob/main/assets/refs/expo_app_form.gif" width="300" height="650"/>
 
 #### 3. Interactive 3D model rendering using expo-gl and orbit control
 
